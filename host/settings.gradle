@@ -1,0 +1,5 @@
+include ':VirtualApk'
+project(":VirtualApk").projectDir = new File("../../VirtualApk")
+
+include ':app'
+//rootProject.name='host'

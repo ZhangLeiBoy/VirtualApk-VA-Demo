@@ -1,0 +1,7 @@
+dependencies {
+    api dps.kotlin.stdlib
+    api dps.kotlin.reflect
+    api dps.kotlin.anko
+    api dps.kotlin.coroutines_core
+    api dps.kotlin.coroutines_android
+}

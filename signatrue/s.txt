@@ -1,0 +1,32 @@
+
+别名: va
+创建日期: 2019-11-11
+条目类型: PrivateKeyEntry
+证书链长度: 1
+证书[1]:
+所有者: CN=ZL, OU=ZL, O=ZL, L=ZL, ST=ZL, C=CN
+发布者: CN=ZL, OU=ZL, O=ZL, L=ZL, ST=ZL, C=CN
+序列号: 59678397
+有效期为 Mon Nov 11 14:13:44 CST 2019 至 Fri Nov 04 14:13:44 CST 2044
+证书指纹:
+	 MD5:  94:8C:B3:E5:12:B9:3F:08:30:1C:7A:8E:40:28:55:29
+	 SHA1: 13:29:C8:03:91:21:EC:66:98:DA:EE:61:38:06:51:F4:36:88:91:A5
+	 SHA256: 5D:AE:F7:43:ED:FC:16:33:D0:CB:0C:4D:F0:43:7A:C5:AA:CF:2F:F9:C8:AA:7D:C5:4C:73:83:6E:8E:92:C3:58
+签名算法名称: SHA256withRSA
+主体公共密钥算法: 2048 位 RSA 密钥
+版本: 3
+
+扩展:
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 46 1A 34 80 84 9A 5D 10   9F C2 8D 9B 63 A9 AE 37  F.4...].....c..7
+0010: BF 64 C8 F7                                        .d..
+]
+]
+
+
+
+*******************************************
+*******************************************

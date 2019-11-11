@@ -1,0 +1,90 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply from: '../../../common/kotlin.gradle'
+//apply from: '../../../common/androidx.gradle'
+apply from: '../../../common/support.gradle'
+
+android {
+    compileSdkVersion rootProject.CompileSdkVersion
+
+    //resourcePrefix "plugin_test_"
+
+    defaultConfig {
+        applicationId "com.albert.barcode.test1"
+        minSdkVersion rootProject.MinSdkVersion
+        targetSdkVersion rootProject.TargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+//    packagingOptions {
+//        exclude 'META-INF/rxjava.properties'
+//        exclude 'META-INF/DEPENDENCIES'
+//        exclude 'META-INF/NOTICE'
+//        exclude 'META-INF/LICENSE'
+//        exclude 'META-INF/LICENSE.txt'
+//        exclude 'META-INF/NOTICE.txt'
+//    }
+
+//    android.applicationVariants.all { variant ->
+//        variant.outputs.all {
+//            def pre_name = 'plugin_'
+//            outputFileName = pre_name + "test.apk"
+//        }
+//    }
+    //设置签名信息
+    signingConfigs {
+        debug {
+            storeFile file('../../../signatrue/debug.keystore')
+        }
+        release {
+            storeFile file('../../../signatrue/release.keystore')
+            keyAlias rootProject.KeyAlias
+            storePassword rootProject.StorePassword
+            keyPassword rootProject.KeyPassword
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    //忽略校验png格式图片
+//    aaptOptions {
+//        cruncherEnabled = false
+//    }
+    //取消检查
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //implementation "com.didi.virtualapk:core:$versions.plugin_core"
+}
+apply plugin: 'com.didi.virtualapk.plugin'
+virtualApk {
+    packageId = 0x6f                    // 插件资源id，避免资源id冲突
+    targetHost = '../../host/app'      // 宿主工程的路径（绝对或者相对路径）
+    applyHostMapping = true             // 插件编译时是否启用应用宿主的apply mapping
+}

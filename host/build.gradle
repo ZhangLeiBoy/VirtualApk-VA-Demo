@@ -1,0 +1,29 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    System.properties['com.android.build.gradle.overrideVersionCheck'] = 'true'
+
+    apply from: '../common/version.gradle'
+    //ext.kotlin_version = '1.3.41'
+    addRepos(repositories)
+
+    dependencies {
+        classpath dps.android_gradle_plugin
+        classpath dps.plugin_gradle
+        classpath dps.kotlin.plugin
+        classpath dps.kotlin.extensions
+    }
+}
+
+allprojects {
+    addRepos(repositories)
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+repositories {
+    google()
+}
