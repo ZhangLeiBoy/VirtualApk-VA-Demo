@@ -2,16 +2,14 @@ package com.albert.barcode.host
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Environment.getExternalStorageDirectory
-import android.support.v4.app.ActivityCompat
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.didi.virtualapk.PluginManager
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.appcompat.v7.Appcompat
 import java.io.File
 
 
@@ -30,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        ActivityCompat.requestPermissions(this,PERMISSIONS_STORAGE, REQUEST_PERMISSION_CODE)
+        ActivityCompat.requestPermissions(this, PERMISSIONS_STORAGE, REQUEST_PERMISSION_CODE)
         tv.setOnClickListener {
             Log.e("albert", "click")
             if (PluginManager.getInstance(this).getLoadedPlugin(PLUGIN_PKG_NAME) == null) {

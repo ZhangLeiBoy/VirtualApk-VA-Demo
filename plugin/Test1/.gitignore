@@ -9,6 +9,9 @@
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build
+/host/Host_R.txt
+/host/mapping.txt
+/host/versions.txt
 /captures
 .externalNativeBuild
 .cxx
